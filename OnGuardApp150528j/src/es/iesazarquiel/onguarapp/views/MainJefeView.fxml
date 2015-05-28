@@ -72,6 +72,26 @@
                   </TitledPane>
               </panes>
             </Accordion>
+            <Pane id="contenedorSuperior" layoutX="158.0" layoutY="150.0" prefHeight="150.0" prefWidth="736.0" style="-fx-background-color: lightblue;">
+               <children>
+                  <Button id="botonok" layoutX="512.0" layoutY="75.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: GreenYellow;" text="OK" />
+                  <DatePicker id="fecha2" layoutX="281.0" layoutY="75.0" />
+                  <DatePicker id="fecha1" layoutX="75.0" layoutY="75.0" />
+                  <ComboBox id="desplegableFaltas" layoutX="480.0" layoutY="25.0" prefWidth="150.0" />
+                  <ComboBox id="desplegableHoras" layoutX="282.0" layoutY="25.0" prefWidth="150.0" />
+                  <ComboBox id="desplegableProfesores" layoutX="75.0" layoutY="25.0" prefWidth="150.0" />
+               </children>
+            </Pane>
+            <TableView id="resultados" layoutX="158.0" layoutY="300.0" prefHeight="302.0" prefWidth="736.0">
+              <columns>
+                <TableColumn id="c1" prefWidth="114.0" text="C1" />
+                  <TableColumn id="c2" prefWidth="121.0" text="C2" />
+                  <TableColumn id="c3" prefWidth="111.0" text="C3" />
+                  <TableColumn id="c4" prefWidth="134.0" text="C4" />
+                  <TableColumn id="c5" prefWidth="122.0" text="C5" />
+                  <TableColumn id="c6" prefWidth="120.0" text="C6" />
+              </columns>
+            </TableView>
          </children>
       </Pane>
    </children>
