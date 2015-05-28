@@ -96,7 +96,7 @@ public class LoginViewController {
     		
     		else {
     		
-    
+    		if (daodocente.getTipoDocente(loginUsuario.getText()).equals("jefe estudios")) {
     		Stage primaryStage = new Stage();
 			Parent root = FXMLLoader.load(getClass().getResource("/es/iesazarquiel/onguarapp/views/MainJefeView.fxml")); //--> quitar el comentario para ejecutar el main
 			Scene scene = new Scene(root);
@@ -106,7 +106,20 @@ public class LoginViewController {
 			
 			Stage escena = (Stage) entrar.getScene().getWindow();
 			escena.close();
+    		}
     		
+    		else {
+    			Stage primaryStage = new Stage();
+    			Parent root = FXMLLoader.load(getClass().getResource("/es/iesazarquiel/onguarapp/views/MainProfeView.fxml")); //--> quitar el comentario para ejecutar el main
+    			Scene scene = new Scene(root);
+    			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+    			primaryStage.setScene(scene);
+    			primaryStage.show();
+    			
+    			Stage escena = (Stage) entrar.getScene().getWindow();
+    			escena.close();
+    			
+    		}
     		
     		}
     		}

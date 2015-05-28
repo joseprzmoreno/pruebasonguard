@@ -164,6 +164,30 @@ public ArrayList<String> getUsuariosyContrasenias() throws SQLException {
 		return UsuariosContrasenias;
 		
 	}
+
+public String getTipoDocente(String usuario) throws SQLException {
+	
+	String tipo = "";
+	Connection con = null;
+	ResultSet rs = null; 
+	Statement st = null;
+	Conexion conexion = new Conexion();
+    
+	con=conexion.getConexion();	
+	st = con.createStatement();
+	String ordenSQL;
+	
+	ordenSQL = "SELECT TIPO FROM DOCENTES WHERE USUARIO = '" + usuario + "'";
+	rs=st.executeQuery(ordenSQL);
+	
+	while(rs.next()) {
+	
+	tipo = rs.getString("TIPO");
+	
+	}
+	return tipo;
+	
+}
 	
 	
 }
