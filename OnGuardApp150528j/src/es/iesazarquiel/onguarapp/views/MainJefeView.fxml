@@ -74,12 +74,13 @@
             </Accordion>
             <Pane id="contenedorSuperior" layoutX="158.0" layoutY="150.0" prefHeight="150.0" prefWidth="736.0" style="-fx-background-color: lightblue;">
                <children>
-                  <Button id="botonok" layoutX="512.0" layoutY="75.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: GreenYellow;" text="OK" />
-                  <DatePicker id="fecha2" layoutX="281.0" layoutY="75.0" />
-                  <DatePicker id="fecha1" layoutX="75.0" layoutY="75.0" />
-                  <ComboBox id="desplegableFaltas" layoutX="480.0" layoutY="25.0" prefWidth="150.0" />
-                  <ComboBox id="desplegableHoras" layoutX="282.0" layoutY="25.0" prefWidth="150.0" />
-                  <ComboBox id="desplegableProfesores" layoutX="75.0" layoutY="25.0" prefWidth="150.0" />
+                  <DatePicker id="fecha1" fx:id="fecha1" layoutX="75.0" layoutY="75.0" />
+                  <DatePicker id="fecha2" fx:id="fecha2" layoutX="281.0" layoutY="75.0" />
+                  <Button id="botonok" fx:id="botonok" layoutX="512.0" layoutY="75.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: GreenYellow;" text="OK" />
+                  <ComboBox id="desplegableFaltas" fx:id="listaFaltas" layoutX="480.0" layoutY="25.0" prefWidth="150.0" />
+                  <ComboBox id="desplegableHoras" fx:id="listaHoras" layoutX="282.0" layoutY="25.0" prefWidth="150.0" />
+                  <ComboBox id="desplegableProfesores" fx:id="listaProfes" layoutX="75.0" layoutY="25.0" prefWidth="150.0" />
+                  <Pane id="tapa" fx:id="ContenedorSuperior" prefHeight="150.0" prefWidth="736.0" style="-fx-background-color: lightblue;" />
                </children>
             </Pane>
             <TableView id="resultados" layoutX="158.0" layoutY="300.0" prefHeight="302.0" prefWidth="736.0">
