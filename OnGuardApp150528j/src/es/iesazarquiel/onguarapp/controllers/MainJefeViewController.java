@@ -2,7 +2,14 @@ package es.iesazarquiel.onguarapp.controllers;
 
 
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import es.iesazarquiel.onguarapp.models.dao.DaoDocente;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
@@ -91,7 +98,7 @@ public class MainJefeViewController {
     private Pane ContenedorSuperior;
 
     @FXML
-    void initialize() {
+    void initialize() throws SQLException {
         assert menu != null : "fx:id=\"menu\" was not injected: check your FXML file 'MainJefeView.fxml'.";
         assert horarios != null : "fx:id=\"horarios\" was not injected: check your FXML file 'MainJefeView.fxml'.";
         assert verHorarios != null : "fx:id=\"verHorarios\" was not injected: check your FXML file 'MainJefeView.fxml'.";
@@ -112,20 +119,32 @@ public class MainJefeViewController {
         assert listaHoras != null : "fx:id=\"listaHoras\" was not injected: check your FXML file 'MainJefeView.fxml'.";
         assert listaProfes != null : "fx:id=\"listaProfes\" was not injected: check your FXML file 'MainJefeView.fxml'.";
         assert ContenedorSuperior != null : "fx:id=\"ContenedorSuperior\" was not injected: check your FXML file 'MainJefeView.fxml'.";
-
+        
+        /*Añadir los nombres de los profesores a la combobox*/
+        DaoDocente daodocente = new DaoDocente();
+        List<String> losProfesores = new ArrayList<String>();
+        losProfesores = daodocente.getNombresProfesores();
+        ObservableList losProfesoresOL = FXCollections.observableList(losProfesores);
+        listaProfes.getItems().clear();
+        listaProfes.setItems(losProfesoresOL);
+        
+        /*Añadir las horas a la combobox*/
+        List<String> lasHoras = new ArrayList<String>();
+        lasHoras.add("hora1");
+        lasHoras.add("hora2");
+        lasHoras.add("hora3");
+        lasHoras.add("hora4");
+        lasHoras.add("hora5");
+        lasHoras.add("hora6");
+        ObservableList lasHorasOL = FXCollections.observableList(lasHoras);
+        listaHoras.getItems().clear();
+        listaHoras.setItems(lasHorasOL);
+        
+        /*Añadir las faltas a la combobox*/
+        
     }
     
-    /*
-     * private boolean activarVerHorarios = false;
-	private boolean activarComunicarFaltas = false;
-	private boolean activarVerFaltas = false;
-	private boolean activarVerGuardias = false;
-	private boolean activarAsignarFaltas = false;
-	private boolean activarFirmarGuardia = false;
-    private boolean activarGenerarInformeGuardias = false;
-    private boolean activarGenerarInformeFaltas = false;
-     */
-    
+ 
     @FXML
     void enviarTodoAlFondo() {
     	botonok.toBack();
@@ -147,7 +166,7 @@ public class MainJefeViewController {
     }
     
     @FXML 
-    void botonComunicarFaltas() {
+    void botonComunicarFalta() {
     	
     	enviarTodoAlFondo();
     	
@@ -183,7 +202,7 @@ public class MainJefeViewController {
     }
     
     @FXML
-    void botonAsignarGuardias() {
+    void botonAsignarGuardia() {
     	enviarTodoAlFondo();
     	
         botonok.toFront();
